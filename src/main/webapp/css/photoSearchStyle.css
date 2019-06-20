@@ -29,9 +29,25 @@ img {
     padding: 5px;
 }
 
-#functionalContent{
+#functionalContent {
     position: relative;
     float: right;
+}
+
+#sendQuery {
+    background-color: #5dade2;
+}
+
+#sendAdvancedQuery {
+    background-color: #5dade2;
+}
+
+.modal-content {
+    background-color: #eaf2f8;
+}
+
+.btn, btn-default{
+    background-color: #5dade2;
 }
 
 @media screen and (min-width: 800px) {

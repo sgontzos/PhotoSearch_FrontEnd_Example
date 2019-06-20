@@ -184,6 +184,9 @@ function generate_dilogue_modal_content(data, idxSF) {
 
     var modalfooter = document.createElement("div");
     modalfooter.classList.add("modal-footer");
+    modalfooter.appendChild(generate_dialogue_modal_close_button());
+    modalfooter.appendChild(generate_dialogue_modal_type_expand_query_button());
+    modalfooter.appendChild(generate_dialogue_modal_abstract_expand_query_button());
 
     var headercontent = document.createElement("p");
     headercontent.id = "headercontent_" + idxSF;
@@ -244,7 +247,8 @@ function generate_dialogue(data) {
 function generate_dialogue_modal_close_button() {
     var closeButton = document.createElement("button");
     closeButton.id = "closeButton";
-    closeButton.innerHTML = "Close";
+    closeButton.innerHTML = "<i class=\"fa fa-close\"></i>";
+    closeButton.style.backgroundColor  = "#5dade2";
     closeButton.classList.add("btn");
     closeButton.classList.add("btn-default");
     closeButton.onclick = function () {
@@ -262,7 +266,8 @@ function generate_dialogue_modal_type_expand_query_button() {
     var expandButton = document.createElement("button");
 
     expandButton.id = "expandButton_id";
-    expandButton.innerHTML = "Advanced Search (type)";
+    expandButton.innerHTML = "<i class=\"fa fa-search-plus\"></i> (type)";
+    expandButton.style.backgroundColor  = "#5dade2";
     expandButton.classList.add("btn");
     expandButton.classList.add("btn-default");
     expandButton.onclick = function () {
@@ -296,7 +301,8 @@ function generate_dialogue_modal_abstract_expand_query_button() {
     var expandButton = document.createElement("button");
 
     expandButton.id = "expandButton_abs";
-    expandButton.innerHTML = "Advanced Search (abstract)";
+    expandButton.innerHTML = "<i class=\"fa fa-search-plus\"></i> (abstract)";
+    expandButton.style.backgroundColor  = "#5dade2";
     expandButton.classList.add("btn");
     expandButton.classList.add("btn-default");
     expandButton.onclick = function () {
@@ -433,10 +439,6 @@ function get_query_candidate_entities(query, confidence, support) {
         success: function (data, status, xhttp) {
             if (data) {
                 $("#dialogueModal").append(generate_dialogue(data));
-                $('#dialogueModal').append(generate_dialogue_modal_close_button());
-                $('#dialogueModal').append(generate_dialogue_modal_type_expand_query_button());
-                $('#dialogueModal').append(generate_dialogue_modal_abstract_expand_query_button());
-
             } else {
                 alert("Something went wrong!");
             }
