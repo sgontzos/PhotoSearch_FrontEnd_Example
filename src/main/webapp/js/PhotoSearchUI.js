@@ -330,6 +330,24 @@ function generate_dialogue_modal_abstract_expand_query_button() {
  * Basic functionality
  */
 $(document).ready(function () {
+    
+    $("#navbuttonOpen").click(function () {
+        var navbuttonOpen = document.getElementById("navbuttonOpen");
+        var navbuttonClose = document.getElementById("navbuttonClose");
+        var navbar = document.getElementById("navbar");
+        navbuttonOpen.style.display = "none";
+        navbar.style.display = "block";
+        navbuttonClose.style.display = "block";
+    });
+    
+    $("#navbuttonClose").click(function () {
+        var navbuttonClose = document.getElementById("navbuttonClose");
+        var navbuttonOpen = document.getElementById("navbuttonOpen");
+        var navbar = document.getElementById("navbar");
+        navbuttonClose.style.display = "none";
+        navbar.style.display = "none";
+        navbuttonOpen.style.display = "block";
+    });
 
     $("#sendQuery").click(function () {
         var query = document.getElementById("query").value;
